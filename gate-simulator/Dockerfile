@@ -1,22 +1,6 @@
-FROM node:8
-
-# Папка приложения
-ARG APP_DIR=app
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
-
-# Установка зависимостей
-COPY package*.json ./
-COPY package-lock*.json ./
-RUN npm install
-# Для использования в продакшне
-# RUN npm install --production
-
-# Копирование файлов проекта
+FROM node:8.16.2-alpine
+WORKDIR /opt/app
 COPY . .
-
-# Уведомление о порте, который будет прослушивать работающее приложение
-EXPOSE 9999
-
-# Запуск проекта
+RUN npm install
 CMD ["npm", "start"]
+EXPOSE 9999
