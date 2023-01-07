@@ -11,7 +11,6 @@ public class PurchaseTicketPage {
     private final SelenideElement YearField = $("//input[@placeholder='22']");
     private final SelenideElement CardHolderField = $("//span[contains(text(),'Владелец')]");
     private final SelenideElement CVCCodeField = $("//input[@placeholder='999']");
-
     private final SelenideElement PurchaseButton = $("//span[contains(text(),'Продолжить')]");
 
 
