@@ -1,16 +1,19 @@
 package test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.MainPage;
 import page.PurchaseTicketPage;
-import page.WelcomePage;
-
 import static com.codeborne.selenide.Selenide.open;
 
 public class PurchaseTicketTest {
+
     @Test
     void shouldPurchasingTicketFromCard() {
         open("http://localhost:8080");
-        var welcomePage = new WelcomePage();
+        var mainPage = new MainPage();
         var purchasingPage = new PurchaseTicketPage();
     }
 
