@@ -38,6 +38,7 @@ public class DataHelper {
         return HolderName;
     }
 
+
     public static String generateCardNumber(String locale) {
         Faker faker = new Faker (new Locale(locale));
         String CardNumber = faker.finance().creditCard();
@@ -77,12 +78,20 @@ public class DataHelper {
         return new HolderInfo("", activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
+    public static HolderInfo getHolderInfoWithWordsInCardNumber() {
+        return new HolderInfo(generateName("ru"), "CARD NUMBER", generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
+    }
+
     public static HolderInfo getHolderInfoWithCardNumberNotAtList() {
         return new HolderInfo(generateName("ru"), generateCardNumber("visa"), generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
     public static HolderInfo getHolderInfoWithWrongMonth() {
         return new HolderInfo(generateName("ru"), activeCard, wrongMonth, generateValidYear("2"), generateCVC("3"));
+    }
+
+    public static HolderInfo getHolderInfoWithEmptyMonthField() {
+        return new HolderInfo(generateName("ru"), activeCard, " ", generateValidYear("2"), generateCVC("3"));
     }
 
     public static HolderInfo getHolderInfoWithWrongPastYear() {

@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6063b4bb-7e16-4d49-a1b4-a55e84d18a6c" name="Changes" comment="commit2.3">
+    <list default="true" id="6063b4bb-7e16-4d49-a1b4-a55e84d18a6c" name="Changes" comment="commit2.4">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/data/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/DataHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/PurchaseTicketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/PurchaseTicketPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/PurchaseTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/PurchaseTicketTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,8 +79,8 @@
       <recent name="C:\Netology Homeworks\DiplomProject\artifacts" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyNameField">
-    <configuration name="PurchaseTicketTest.shouldPurchasingTicketFromCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWordInCardNumber">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyMonthField" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -91,7 +93,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest.shouldPurchasingTicketFromCard&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyMonthField&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -101,7 +103,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchaseTicketTest.shouldPurchasingTicketFromCreditCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -114,7 +116,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest.shouldPurchasingTicketFromCreditCard&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -124,7 +126,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyNameField" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWordInCardNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -137,7 +139,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyNameField&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWordInCardNumber&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -147,7 +149,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongFutureYear" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -160,7 +162,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithNumber&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongFutureYear&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,7 +172,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithSymbol" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -183,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithSymbol&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -195,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyNameField" />
-        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithSymbol" />
-        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithNameWithNumber" />
-        <item itemvalue="Gradle.PurchaseTicketTest.shouldPurchasingTicketFromCard" />
-        <item itemvalue="Gradle.PurchaseTicketTest.shouldPurchasingTicketFromCreditCard" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWordInCardNumber" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongFutureYear" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithEmptyMonthField" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber" />
       </list>
     </recent_temporary>
   </component>
@@ -303,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673331980404</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="commit2.4">
+      <created>1673333166169</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673333166169</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,6 +337,7 @@
     <MESSAGE value="commit2.1" />
     <MESSAGE value="commit2.2" />
     <MESSAGE value="commit2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit2.3" />
+    <MESSAGE value="commit2.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit2.4" />
   </component>
 </project>

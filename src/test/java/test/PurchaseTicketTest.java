@@ -102,6 +102,19 @@ public class PurchaseTicketTest {
 
     }
 
+    @Test //Валидация поля номер карты (ввод букв в поле)
+    //проходит +
+    void shouldntPurchasingTicketFromCardWithWordInCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.PurchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithWordsInCardNumber();
+        PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkErrorCardNumberFieldNotification();
+
+    }
+
+
+    //****************************** ПО ПЛАНУ ! ************************************
 
     @Test //Валидация поля номер карты (ввод карты не из списка)
         //проходит +
@@ -110,35 +123,48 @@ public class PurchaseTicketTest {
         mainPage.PurchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithCardNumberNotAtList();
         PurchaseTicketPage.Purchase(invalidCardInformation);
-        PurchaseTicketPage.checkWrongNotification();
+        PurchaseTicketPage.checkErrorCardNumberFieldNotification();
 
     }
 
-    @Test //проходит
+    @Test // Валидация поля месяц (ввод 33 меясца)
+        //проходит +
     void shouldntPurchasingTicketFromCardWithWrongMonth() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWrongMonth();
         PurchaseTicketPage.Purchase(invalidCardInformation);
-        PurchaseTicketPage.checkPeriodErrorMonthFieldNotification();
+        PurchaseTicketPage.checkMonthErrorFieldNotification();
     }
 
-    @Test //
+    @Test // Валидация поля месяц (оставить поле пустым)
+        // проходит +
+    void shouldntPurchasingTicketFromCardWithEmptyMonthField() {
+        var mainPage = new MainPage();
+        mainPage.PurchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithEmptyMonthField();
+        PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkMonthErrorFieldNotification();
+    }
+
+    @Test // Валидация поля год (ввод в поле год который прошел)
+        // проходит +
     void shouldntPurchasingTicketFromCardWithWrongPastYear() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWrongPastYear();
         PurchaseTicketPage.Purchase(invalidCardInformation);
-        PurchaseTicketPage.checkEmptyErrorYearFieldNotification();
-
+        PurchaseTicketPage.checkYearErrorFieldNotification();
     }
 
-    @Test
+    @Test// Валидация поля год (ввод в поле год который будет)
+        // проходит +
     void shouldntPurchasingTicketFromCardWithWrongFutureYear() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWrongFutureYear();
         PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkYearErrorFieldNotification();
 
     }
 
