@@ -15,7 +15,8 @@ public class PurchaseTicketTest {
      void setUpAll(){
         open("http://localhost:8080");
     }
-    @Test
+    @Test // Покупка по карте
+        //проходит +
     void shouldPurchasingTicketFromCard() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
@@ -25,7 +26,8 @@ public class PurchaseTicketTest {
 
     }
 
-    @Test //проходит
+    @Test // Покупка по кредитной карте
+        //проходит +
     void shouldPurchasingTicketFromCreditCard() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByCreditCard();
@@ -34,41 +36,79 @@ public class PurchaseTicketTest {
         PurchaseTicketPage.checkSuccessNotification();
     }
 
-    @Test //не проходит (баг)
+    @Test  // Покупка по заблокированной карте
+        //не проходит (баг)-
     void shouldntPurchasingTicketFromCardWithWrongCardNumber() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidCardNumberHolderInfo();
+        var invalidCardInformation = DataHelper.getDeclinedCardNumberHolderInfo();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkWrongNotification();
 
     }
 
-    @Test // не проходит (баг)
+    @Test //Валидация поля Имя (русскими буквами)
+        // не проходит (баг) -
     void shouldntPurchasingTicketFromCardWithRuName() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithRuNameHolderInfo();
+        var invalidCardInformation = DataHelper.getHolderInfoWithRuName();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkErrorHolderFieldNotification();
 
     }
 
-    @Test //не проходит (баг)
+    @Test //Валидация поля Имя (ввод в поле цифр)
+        //не проходит (баг) -
     void shouldntPurchasingTicketFromCardWithNameWithNumber() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithNameWithNumber();
+        var invalidCardInformation = DataHelper.getHolderInfoWithNameWithNumber();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkErrorHolderFieldNotification();
 
     }
 
-    @Test //проходит
+    @Test//Валидация поля Имя (ввод в поле специальных символов)
+        //не проходит (баг) -
+    void shouldntPurchasingTicketFromCardWithNameWithSymbol() {
+        var mainPage = new MainPage();
+        mainPage.PurchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithNameWithSymbol();
+        PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkErrorHolderFieldNotification();
+
+    }
+
+    @Test//Валидация поля Имя (ввод в поле пропусков)
+        //не проходит (баг) -
+    void shouldntPurchasingTicketFromCardWithNameWithFreeSpace() {
+        var mainPage = new MainPage();
+        mainPage.PurchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoNameWithFreeSpace();
+        PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkErrorHolderFieldNotification();
+
+    }
+
+    @Test//Валидация поля Имя (оставить поле пустым)
+        //проходит +
+    void shouldntPurchasingTicketFromCardWithEmptyNameField() {
+        var mainPage = new MainPage();
+        mainPage.PurchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoEmptyNameField();
+        PurchaseTicketPage.Purchase(invalidCardInformation);
+        PurchaseTicketPage.checkErrorHolderFieldNotification();
+
+    }
+
+
+    @Test //Валидация поля номер карты (ввод карты не из списка)
+        //проходит +
     void shouldntPurchasingTicketFromCardWithSomeCardNumber() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithSomeCardNumberHolderInfo();
+        var invalidCardInformation = DataHelper.getHolderInfoWithCardNumberNotAtList();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkWrongNotification();
 
@@ -78,7 +118,7 @@ public class PurchaseTicketTest {
     void shouldntPurchasingTicketFromCardWithWrongMonth() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithWrongMonthHolderInfo();
+        var invalidCardInformation = DataHelper.getHolderInfoWithWrongMonth();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkPeriodErrorMonthFieldNotification();
     }
@@ -87,7 +127,7 @@ public class PurchaseTicketTest {
     void shouldntPurchasingTicketFromCardWithWrongPastYear() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithWrongPastYearHolderInfo();
+        var invalidCardInformation = DataHelper.getHolderInfoWithWrongPastYear();
         PurchaseTicketPage.Purchase(invalidCardInformation);
         PurchaseTicketPage.checkEmptyErrorYearFieldNotification();
 
@@ -97,7 +137,7 @@ public class PurchaseTicketTest {
     void shouldntPurchasingTicketFromCardWithWrongFutureYear() {
         var mainPage = new MainPage();
         mainPage.PurchaseBuyByDebitCard();
-        var invalidCardInformation = DataHelper.getInvalidWithWrongFutureYearHolderInfo();
+        var invalidCardInformation = DataHelper.getHolderInfoWithWrongFutureYear();
         PurchaseTicketPage.Purchase(invalidCardInformation);
 
     }

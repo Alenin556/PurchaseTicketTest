@@ -54,30 +54,42 @@ public class DataHelper {
         return new HolderInfo(generateName("eng"), activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidCardNumberHolderInfo() {
+    public static HolderInfo getDeclinedCardNumberHolderInfo() {
         return new HolderInfo(generateName("eng"), blockedCard,generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
-    public static HolderInfo getInvalidWithRuNameHolderInfo() {
+    public static HolderInfo getHolderInfoWithRuName() {
         return new HolderInfo(generateName("ru"), activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidWithNameWithNumber() {
+    public static HolderInfo getHolderInfoWithNameWithNumber() {
         return new HolderInfo("ALENIN ADREY1", activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidWithSomeCardNumberHolderInfo() {
+    public static HolderInfo getHolderInfoWithNameWithSymbol() {
+        return new HolderInfo("ALENI$$ ADREY%%", activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
+    }
+
+    public static HolderInfo getHolderInfoNameWithFreeSpace() {
+        return new HolderInfo("ALEN  IN AD   REY", activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
+    }
+
+    public static HolderInfo getHolderInfoEmptyNameField() {
+        return new HolderInfo("", activeCard, generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
+    }
+
+    public static HolderInfo getHolderInfoWithCardNumberNotAtList() {
         return new HolderInfo(generateName("ru"), generateCardNumber("visa"), generateValidMonth("2"), generateValidYear("2"), generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidWithWrongMonthHolderInfo() {
+    public static HolderInfo getHolderInfoWithWrongMonth() {
         return new HolderInfo(generateName("ru"), activeCard, wrongMonth, generateValidYear("2"), generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidWithWrongPastYearHolderInfo() {
+    public static HolderInfo getHolderInfoWithWrongPastYear() {
         return new HolderInfo(generateName("ru"), activeCard, generateValidMonth("2"), wrongPastYear, generateCVC("3"));
     }
 
-    public static HolderInfo getInvalidWithWrongFutureYearHolderInfo() {
+    public static HolderInfo getHolderInfoWithWrongFutureYear() {
         return new HolderInfo(generateName("ru"),activeCard , wrongMonth, wrongFutureYear, generateCVC("3"));
     }
 
