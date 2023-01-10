@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6063b4bb-7e16-4d49-a1b4-a55e84d18a6c" name="Changes" comment="commit2.1">
+    <list default="true" id="6063b4bb-7e16-4d49-a1b4-a55e84d18a6c" name="Changes" comment="commit2.2">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,12 +14,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/page/WelcomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper$InvalidHolderInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper$ValidHolderInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/data/DataHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/DataHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/page/PurchaseTicketPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/PurchaseTicketPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/PurchaseTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/PurchaseTicketTest.java" afterDir="false" />
@@ -32,6 +36,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,30 +85,7 @@
       <recent name="C:\Netology Homeworks\DiplomProject\artifacts" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PurchaseTicketTest">
-    <configuration name="PurchaseTicketTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.PurchaseTicketTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.PurchaseTicketTest.shouldPurchasingTicketFromCard">
     <configuration name="PurchaseTicketTest.shouldPurchasingTicketFromCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -118,7 +109,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchasingTicketTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldPurchasingTicketFromCreditCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -131,7 +122,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchasingTicketTest&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldPurchasingTicketFromCreditCard&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -141,7 +132,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchasingTicketTest.shouldPurchasingTicketFromCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -154,7 +145,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchasingTicketTest.shouldPurchasingTicketFromCard&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -164,7 +155,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PurchasingTicketTest.shouldTransferMoneyFromCard1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -177,7 +168,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.PurchasingTicketTest.shouldTransferMoneyFromCard1&quot;" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongMonth&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -189,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PurchaseTicketTest" />
         <item itemvalue="Gradle.PurchaseTicketTest.shouldPurchasingTicketFromCard" />
-        <item itemvalue="Gradle.PurchasingTicketTest.shouldPurchasingTicketFromCard" />
-        <item itemvalue="Gradle.PurchasingTicketTest" />
-        <item itemvalue="Gradle.PurchasingTicketTest.shouldTransferMoneyFromCard1" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldPurchasingTicketFromCreditCard" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongMonth" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithWrongPastYear" />
+        <item itemvalue="Gradle.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithSomeCardNumber" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673128129217</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit2.2">
+      <created>1673173364262</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673173364262</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,6 +327,7 @@
     <MESSAGE value="commit2" />
     <MESSAGE value="commit2.0" />
     <MESSAGE value="commit2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit2.1" />
+    <MESSAGE value="commit2.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit2.2" />
   </component>
 </project>

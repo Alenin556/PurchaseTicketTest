@@ -21,16 +21,16 @@ public class MainPage {
 
 
 
-    public MainPage PurchaseBuyByDebitCard() {
+    public PurchaseTicketPage PurchaseBuyByDebitCard() {
         buttonBuyByDebit.click();
         PurchaseByDebitHeader.shouldBe(Condition.visible);
-        return new MainPage();
+        return new PurchaseTicketPage();
     }
 
-    public MainPage PurchaseBuyByCreditCard() {
+    public PurchaseTicketPage PurchaseBuyByCreditCard() {
         buttonBuyByCredit.click();
         PurchaseByCreditHeader.shouldBe(Condition.visible);
-        return new MainPage();
+        return new PurchaseTicketPage();
     }
 
 }
