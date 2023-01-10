@@ -99,7 +99,7 @@ public class DataHelper {
     }
 
     public static HolderInfo getHolderInfoWithWrongFutureYear() {
-        return new HolderInfo(generateName("ru"),activeCard , wrongMonth, wrongFutureYear, generateCVC("3"));
+        return new HolderInfo(generateName("ru"),activeCard , generateValidMonth("2"), wrongFutureYear, generateCVC("3"));
     }
 
 
