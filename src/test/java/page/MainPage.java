@@ -16,20 +16,20 @@ public class MainPage {
     private final SelenideElement buttonBuyByDebit = $(byText("Купить"));
     private final SelenideElement buttonBuyByCredit = $(byText("Купить в кредит"));
 
-    private final SelenideElement PurchaseByDebitHeader = $(withText("Оплата по карте"));
-    private final SelenideElement PurchaseByCreditHeader = $(withText("Кредит по данным карты"));
+    private final SelenideElement purchaseByDebitHeader = $(withText("Оплата по карте"));
+    private final SelenideElement purchaseByCreditHeader = $(withText("Кредит по данным карты"));
 
 
 
-    public PurchaseTicketPage PurchaseBuyByDebitCard() {
+    public PurchaseTicketPage purchaseBuyByDebitCard() {
         buttonBuyByDebit.click();
-        PurchaseByDebitHeader.shouldBe(Condition.visible);
+        purchaseByDebitHeader.shouldBe(Condition.visible);
         return new PurchaseTicketPage();
     }
 
-    public PurchaseTicketPage PurchaseBuyByCreditCard() {
+    public PurchaseTicketPage purchaseBuyByCreditCard() {
         buttonBuyByCredit.click();
-        PurchaseByCreditHeader.shouldBe(Condition.visible);
+        purchaseByCreditHeader.shouldBe(Condition.visible);
         return new PurchaseTicketPage();
     }
 
