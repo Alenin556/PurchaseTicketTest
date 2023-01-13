@@ -10,27 +10,27 @@ import static com.codeborne.selenide.Selenide.$;
 
 
 public class PurchaseTicketPage {
-    private static SelenideElement cardNumberField = $("input[placeholder='0000 0000 0000 0000']");
-    private static SelenideElement monthField = $("input[placeholder='08']");
-    private static SelenideElement yearField = $("input[placeholder='22']");
-    private static SelenideElement cardHolderField = $(" div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__box > input");
-    private static SelenideElement cvcCodeField = $("input[placeholder='999']");
-    private static SelenideElement purchaseButton = $("div > form > fieldset > div:nth-child(4) > button");
+    private final SelenideElement cardNumberField = $("input[placeholder='0000 0000 0000 0000']");
+    private final SelenideElement monthField = $("input[placeholder='08']");
+    private final SelenideElement yearField = $("input[placeholder='22']");
+    private final SelenideElement cardHolderField = $(" div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__box > input");
+    private final SelenideElement cvcCodeField = $("input[placeholder='999']");
+    private final SelenideElement purchaseButton = $("div > form > fieldset > div:nth-child(4) > button");
 
-    private static SelenideElement successNotification = $(".notification_status_ok");
+    private final SelenideElement successNotification = $(".notification_status_ok");
 
-    private static SelenideElement wrongNotification = $(" .notification_status_error");
+    private final SelenideElement wrongNotification = $(" .notification_status_error");
 
-    private static SelenideElement cardFieldError = $(" div:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement cardFieldError = $(" div:nth-child(1) > span > span > span.input__sub");
     //   private static final SelenideElement MonthEmptyFieldError = $(" div > form > fieldset > div:nth-child(2) > span > span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub");
-    private static SelenideElement monthPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(1) > span > span > span.input__sub");
-    private static SelenideElement yearPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
+    private final SelenideElement monthPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement yearPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
     // private static final SelenideElement YearEmptyFieldError = $(" div > form > fieldset > div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
-    private static SelenideElement holderFieldError = $(" div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__sub");
-    private static SelenideElement cvcFieldError = $("  div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__sub");
+    private final SelenideElement holderFieldError = $(" div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement cvcFieldError = $("  div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__sub");
 
 
-    public static void purchase(DataHelper.HolderInfo info) {
+    public void purchase(DataHelper.HolderInfo info) {
         cardNumberField.setValue(info.getCardNumber());
         monthField.setValue(info.getMonth());
         yearField.setValue(info.getYear());
@@ -39,23 +39,23 @@ public class PurchaseTicketPage {
         purchaseButton.click();
     }
 
-    public static void checkSuccessNotification() {
+    public void checkSuccessNotification() {
         successNotification.should(Condition.visible, Duration.ofSeconds(15));
     }
 
-    public static void checkWrongNotification() {
+    public void checkWrongNotification() {
         wrongNotification.should(Condition.visible, Duration.ofSeconds(15));
     }
 
-    public static void checkErrorCardNumberFieldNotification() {
+    public void checkErrorCardNumberFieldNotification() {
         cardFieldError.should(Condition.visible);
     }
 
-    public static void checkMonthErrorFieldNotification() {
+    public void checkMonthErrorFieldNotification() {
         monthPeriodFieldError.should(Condition.visible);
     }
 
-    public static void checkYearErrorFieldNotification() {
+    public void checkYearErrorFieldNotification() {
         yearPeriodFieldError.should(Condition.visible);
     }
 
@@ -70,11 +70,11 @@ public class PurchaseTicketPage {
 
    */
 
-    public static void checkErrorHolderFieldNotification() {
+    public void checkErrorHolderFieldNotification() {
         holderFieldError.should(Condition.visible);
     }
 
-    public static void checkErrorCVCFieldNotification() {
+    public void checkErrorCVCFieldNotification() {
         cvcFieldError.should(Condition.visible);
     }
 
