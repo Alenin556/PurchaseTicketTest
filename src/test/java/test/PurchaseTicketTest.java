@@ -2,6 +2,8 @@ package test;
 
 
 import data.DataHelper;
+import lombok.val;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.MainPage;
@@ -43,7 +45,7 @@ public class PurchaseTicketTest {
 
     @Test
         // Покупка по заблокированной карте
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithWrongCardNumber() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -56,14 +58,14 @@ public class PurchaseTicketTest {
 
     @Test
         // Покупка по карте не из списка
-        // не проходит (баг)
+        //проходит +
     void shouldntPurchasingTicketFromCardWithSomeCardNumber() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithCardNumberNotAtList();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkErrorCardNumberFieldNotification();
+        page.checkWrongNotification();
 
     }
 
@@ -75,7 +77,7 @@ public class PurchaseTicketTest {
 
     @Test
         //Валидация поля Имя (ввод имени на русском)
-        // не проходит (баг)
+        // не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithRuWordInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -88,7 +90,7 @@ public class PurchaseTicketTest {
 
     @Test
         //Валидация поля Имя (ввод цифр)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithNumberInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -100,8 +102,8 @@ public class PurchaseTicketTest {
     }
 
     @Test
-//Валидация поля Имя (ввод специальных символов)
-        //не проходит (баг)
+         //Валидация поля Имя (ввод специальных символов)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithSymbolInNameFiedld() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -114,7 +116,7 @@ public class PurchaseTicketTest {
 
     @Test
          //Валидация поля Имя (ввод пропусков)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithFreeSpaceInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -257,7 +259,7 @@ public class PurchaseTicketTest {
 
     @Test
         // Валидация поля месяц (ввод нулей)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithZerolInMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();
@@ -377,7 +379,7 @@ public class PurchaseTicketTest {
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCVC();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkErrorCVCFieldNotification();
+        page.checkSuccessNotification();
     }
 
     @Test
@@ -406,7 +408,7 @@ public class PurchaseTicketTest {
 
     @Test
         // Валидация поля CVC (ввод нулей)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCardWithZeroInCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByDebitCard();

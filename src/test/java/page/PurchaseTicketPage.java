@@ -74,6 +74,10 @@ public class PurchaseTicketPage {
         holderFieldError.should(Condition.visible);
     }
 
+    public void getCVCFieldValue() { cvcCodeField.getValue();
+    }
+
+
     public void checkErrorCVCFieldNotification() {
         cvcFieldError.should(Condition.visible);
     }

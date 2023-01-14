@@ -15,6 +15,8 @@ public class DataHelper {
     static String activeCard = "4444 4444 4444 4441";
     static String blockedCard = "4444 4444 4444 4442";
 
+    static String longCVC = "1234";
+
 
     public static String generateValidMonth() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
@@ -40,7 +42,7 @@ public class DataHelper {
         int currentYear = date.getYear();
         int millennium = 2000;
         Faker faker = new Faker();
-        int random = faker.random().nextInt(1, 6);
+        int random = faker.random().nextInt(1, 5);
         int someYear = currentYear + random;
         int validFormOfMonth = millennium - someYear;
         String Year = String.valueOf(validFormOfMonth);
@@ -85,11 +87,7 @@ public class DataHelper {
         return CVC;
     }
 
-    public static String generateLongCVC() {
-        Faker faker = new Faker();
-        String CVC = faker.number().digits(4);
-        return CVC;
-    }
+    public  String LongCVC = "1234" ;
 
     public static HolderInfo getValidHolderInfo() {
         return new HolderInfo(generateName("eng"), activeCard, generateValidMonth(), generateValidYear(), generateCVC());
@@ -196,7 +194,7 @@ public class DataHelper {
     }
 
     public static HolderInfo getHolderInfoWithLongCVC() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateValidYear(), generateLongCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateValidYear(), longCVC);
     }
 
     public static HolderInfo getHolderInfoWithWordInCVCField() {
