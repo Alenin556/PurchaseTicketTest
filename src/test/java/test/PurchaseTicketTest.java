@@ -452,7 +452,7 @@ public class PurchaseTicketTest {
 
     @Test
         //Валидация поля Имя (ввод имени на русском)
-        // не проходит (баг)
+        // не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithRuWordInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
@@ -465,7 +465,7 @@ public class PurchaseTicketTest {
 
     @Test
         //Валидация поля Имя (ввод цифр)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithNumberInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
@@ -478,7 +478,7 @@ public class PurchaseTicketTest {
 
     @Test
          //Валидация поля Имя (ввод специальных символов)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithSymbolInNameFiedld() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
@@ -491,7 +491,7 @@ public class PurchaseTicketTest {
 
     @Test
         //Валидация поля Имя (ввод пропусков)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithFreeSpaceInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
@@ -634,7 +634,7 @@ public class PurchaseTicketTest {
 
     @Test
         // Валидация поля месяц (ввод нулей)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithZerolInMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
@@ -783,7 +783,7 @@ public class PurchaseTicketTest {
 
     @Test
         // Валидация поля CVC (ввод нулей)
-        //не проходит (баг)
+        //не проходит (баг *оформлен*)
     void shouldntPurchasingTicketFromCreditCardWithZeroInCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();

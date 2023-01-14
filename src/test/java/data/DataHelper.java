@@ -106,7 +106,7 @@ public class DataHelper {
     }
 
     public static HolderInfo getHolderInfoWithSymbolInNameField() {
-        return new HolderInfo("ALENI$$ ADREY%%", activeCard, generateValidMonth(), generateValidYear(), generateCVC());
+        return new HolderInfo("ALENI$$ ANDREY%%", activeCard, generateValidMonth(), generateValidYear(), generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithSpaceInNameField() {
