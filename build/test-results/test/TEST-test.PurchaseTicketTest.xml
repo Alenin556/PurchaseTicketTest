@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="test.PurchaseTicketTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-01-14T10:03:43" hostname="VIVOBOOK" time="7.125">
+<testsuite name="test.PurchaseTicketTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-01-14T13:58:24" hostname="VIVOBOOK" time="17.666">
   <properties/>
-  <testcase name="shouldntPurchasingTicketFromCardWithZerolInMonthField()" classname="test.PurchaseTicketTest" time="7.125">
-    <failure message="Element not found { div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub}&#13;&#10;Expected: visible&#13;&#10;Screenshot: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673690630148.0.png&#13;&#10;Page source: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673690630148.0.html&#13;&#10;Timeout: 4 s.&#13;&#10;Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot; div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub&quot;}" type="com.codeborne.selenide.ex.ElementNotFound">Element not found { div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub}
+  <testcase name="shouldntCreditPurchasingTicketFromCardWithLongCardNumber()" classname="test.PurchaseTicketTest" time="17.666">
+    <failure message="Element not found {.notification_status_ok}&#13;&#10;Expected: visible&#13;&#10;Page source: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673704721735.0.html&#13;&#10;Timeout: 15 s.&#13;&#10;Caused by: NoSuchWindowException: no such window: target window already closed" type="com.codeborne.selenide.ex.ElementNotFound">Element not found {.notification_status_ok}
 Expected: visible
-Screenshot: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673690630148.0.png
-Page source: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673690630148.0.html
-Timeout: 4 s.
-Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot; div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub&quot;}
+Page source: file:/C:/Netology%20Homeworks/DiplomProject/build/reports/tests/1673704721735.0.html
+Timeout: 15 s.
+Caused by: NoSuchWindowException: no such window: target window already closed
 	at app//com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:83)
 	at app//com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:136)
 	at app//com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:114)
@@ -17,8 +16,8 @@ Caused by: NoSuchElementException: no such element: Unable to locate element: {&
 	at app//com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:128)
 	at app//com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:80)
 	at app//com.sun.proxy.$Proxy12.should(Unknown Source)
-	at app//page.PurchaseTicketPage.checkMonthErrorFieldNotification(PurchaseTicketPage.java:55)
-	at app//test.PurchaseTicketTest.shouldntPurchasingTicketFromCardWithZerolInMonthField(PurchaseTicketTest.java:267)
+	at app//page.PurchaseTicketPage.checkSuccessNotification(PurchaseTicketPage.java:43)
+	at app//test.PurchaseTicketTest.shouldntCreditPurchasingTicketFromCardWithLongCardNumber(PurchaseTicketTest.java:593)
 	at java.base@11.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@11.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base@11.0.15/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -102,15 +101,15 @@ Caused by: NoSuchElementException: no such element: Unable to locate element: {&
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot; div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub&quot;}
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=109.0.5414.75)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'VIVOBOOK', ip: '192.168.0.103', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Asus\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49352}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 67b121fe39327c91759f34941d13ac21
-*** Element info: {Using=css selector, value= div:nth-child(2) &gt; span &gt; span:nth-child(1) &gt; span &gt; span &gt; span.input__sub}
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Asus\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:51962}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: d81a8ac70f467467d4b6ec7ad9058383
+*** Element info: {Using=css selector, value=.notification_status_ok}
 	at jdk.internal.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
 	at java.base@11.0.15/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base@11.0.15/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
@@ -135,11 +134,11 @@ Session ID: 67b121fe39327c91759f34941d13ac21
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 34010
+Starting ChromeDriver 109.0.5414.74 (e7c5703604daa9cc128ccf5a5d3e993513758913-refs/branch-heads/5414@{#1172}) on port 11733
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-янв. 14, 2023 1:03:44 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+янв. 14, 2023 4:58:25 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>

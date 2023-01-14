@@ -143,6 +143,32 @@ public class PurchaseTicketTest {
     //        Номер карты
 
     @Test
+        //Валидация поля номер карты (ввод короткого номера)
+        // проходит +
+    void shouldntPurchasingTicketFromCardWithShortCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithShortCardNumber();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkErrorCardNumberFieldNotification();
+
+    }
+
+    @Test
+        //Валидация поля номер карты (ввод длинного номера)
+        // проходит +
+    void shouldntPurchasingTicketFromCardWithLongCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByDebitCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithLongCardNumber();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkSuccessNotification(); //прописать проверку на количество
+
+    }
+
+    @Test
         //Валидация поля номер карты (ввод букв)
         // проходит +
     void shouldntPurchasingTicketFromCardWithWordInCardNumberField() {
@@ -542,6 +568,31 @@ public class PurchaseTicketTest {
 
     //        Номер карты
 
+    @Test
+        //Валидация поля номер карты (ввод короткого номера)
+        // проходит +
+    void shouldntCreditPurchasingTicketFromCardWithShortCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByCreditCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithShortCardNumber();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkErrorCardNumberFieldNotification();
+
+    }
+
+    @Test
+        //Валидация поля номер карты (ввод длинного номера)
+        // проходит +
+    void shouldntCreditPurchasingTicketFromCardWithLongCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByCreditCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithLongCardNumber();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkSuccessNotification(); //прописать проверку на количестов
+
+    }
     @Test
         //Валидация поля номер карты (ввод букв)
         // проходит +

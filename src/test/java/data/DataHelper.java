@@ -14,6 +14,8 @@ public class DataHelper {
     static String wrongPastYear = "15";
     static String activeCard = "4444 4444 4444 4441";
     static String blockedCard = "4444 4444 4444 4442";
+    static String shortCard = "4444";
+    static String longCard = "4444 4444 4444 4444 4444";
 
     static String longCVC = "1234";
 
@@ -117,6 +119,13 @@ public class DataHelper {
         return new HolderInfo("", activeCard, generateValidMonth(), generateValidYear(), generateCVC());
     }
 
+    public static HolderInfo getHolderInfoWithShortCardNumber() {
+        return new HolderInfo(generateName("ru"), shortCard, generateValidMonth(), generateValidYear(), generateCVC());
+    }
+
+    public static HolderInfo getHolderInfoWithLongCardNumber() {
+        return new HolderInfo(generateName("ru"), longCard, generateValidMonth(), generateValidYear(), generateCVC());
+    }
     public static HolderInfo getHolderInfoWithWordInCardNumberField() {
         return new HolderInfo(generateName("ru"), "CARD NUMBER", generateValidMonth(), generateValidYear(), generateCVC());
     }
