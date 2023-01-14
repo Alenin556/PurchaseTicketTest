@@ -445,6 +445,31 @@ public class PurchaseTicketTest {
 
     //****************************** ПО ПЛАНУ ! ************************************
 
+    @Test
+        // Покупка по заблокированной карте
+        //не проходит (баг *оформлен*)
+    void shouldntCreditPurchasingTicketFromCardWithWrongCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByCreditCard();
+        var invalidCardInformation = DataHelper.getDeclinedCardNumberHolderInfo();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkWrongNotification();
+
+    }
+
+    @Test
+        // Покупка по карте не из списка
+        //проходит +
+    void shouldntCreditPurchasingTicketFromCardWithSomeCardNumber() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByCreditCard();
+        var invalidCardInformation = DataHelper.getHolderInfoWithCardNumberNotAtList();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(invalidCardInformation);
+        page.checkWrongNotification();
+
+    }
 
     //       Валидация полей при покупке по кредитной карте.
 
@@ -453,7 +478,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля Имя (ввод имени на русском)
         // не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithRuWordInNameField() {
+    void shouldntCreditPurchasingTicketFromCardWithRuWordInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithRuNameInNameField();
@@ -466,7 +491,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля Имя (ввод цифр)
         //не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithNumberInNameField() {
+    void shouldntCreditPurchasingTicketFromCardWithNumberInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithNumberInNameField();
@@ -479,7 +504,7 @@ public class PurchaseTicketTest {
     @Test
          //Валидация поля Имя (ввод специальных символов)
         //не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithSymbolInNameFiedld() {
+    void shouldntCreditPurchasingTicketFromCardWithSymbolInNameFiedld() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSymbolInNameField();
@@ -492,7 +517,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля Имя (ввод пропусков)
         //не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithFreeSpaceInNameField() {
+    void shouldntCreditPurchasingTicketFromCardWithFreeSpaceInNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSpaceInNameField();
@@ -505,7 +530,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля Имя (оставить поле пустым)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithEmptyNameField() {
+    void shouldntCreditPurchasingTicketFromCardWithEmptyNameField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoEmptyNameField();
@@ -520,7 +545,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля номер карты (ввод букв)
         // проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWordInCardNumberField() {
+    void shouldntCreditPurchasingTicketFromCardWithWordInCardNumberField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWordInCardNumberField();
@@ -533,7 +558,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля номер карты ( ввод символов )
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithSymbolInCardNumberField() {
+    void shouldntCreditPurchasingTicketFromCardWithSymbolInCardNumberField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSymbolInCardNumberField();
@@ -546,7 +571,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля номер карты (ввод нулей)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithZeroInCardNumberField() {
+    void shouldntCreditPurchasingTicketFromCardWithZeroInCardNumberField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithZeroInCardNumberField();
@@ -559,7 +584,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля номер карты (ввод пропусков)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithFreeSpaceInCardNumberField() {
+    void shouldntCreditPurchasingTicketFromCardWithFreeSpaceInCardNumberField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSpaceInCardNumberField();
@@ -572,7 +597,7 @@ public class PurchaseTicketTest {
     @Test
         //Валидация поля номер карты (оставить поле пустым)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithEmptyCardNumberField() {
+    void shouldntCreditPurchasingTicketFromCardWithEmptyCardNumberField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithEmptyCardNumberField();
@@ -587,7 +612,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (ввод месяца без 0)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithMonthWithoutZero() {
+    void shouldntCreditPurchasingTicketFromCardWithMonthWithoutZero() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithMonthWithoutZero();
@@ -599,7 +624,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (ввод 13 меcяца)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWrongMonth() {
+    void shouldntCreditPurchasingTicketFromCardWithWrongMonth() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWrongMonth();
@@ -611,7 +636,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (ввод букв)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWordInMonthField() {
+    void shouldntCreditPurchasingTicketFromCardWithWordInMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWordInMonthField();
@@ -623,7 +648,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (ввод символов)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithSymbolInMonthField() {
+    void shouldntCreditPurchasingTicketFromCardWithSymbolInMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSymbolInMonthField();
@@ -635,7 +660,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (ввод нулей)
         //не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithZerolInMonthField() {
+    void shouldntCreditPurchasingTicketFromCardWithZerolInMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithZeroInMonthField();
@@ -647,7 +672,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля месяц (оставить поле пустым)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithEmptyMonthField() {
+    void shouldntCreditPurchasingTicketFromCardWithEmptyMonthField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithEmptyMonthField();
@@ -661,7 +686,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (ввод в поле года прошедшего)
         // проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWrongPastYear() {
+    void shouldntCreditPurchasingTicketFromCardWithWrongPastYear() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWrongPastYear();
@@ -673,7 +698,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (ввод года превышающего срок годности)
         // проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWrongFutureYear() {
+    void shouldntCreditPurchasingTicketFromCardWithWrongFutureYear() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithInvalidYear();
@@ -686,7 +711,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (ввод букв)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWordInYearField() {
+    void shouldntCreditPurchasingTicketFromCardWithWordInYearField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWordInYearField();
@@ -698,7 +723,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (ввод символов)
         //проходит +
-    void mbolshouldntPurchasingTicketFromCreditCardWithSymbolInYearField() {
+    void shouldntCreditPurchasingTicketFromCardWithSymbolInYearField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSymbolInYearField();
@@ -710,7 +735,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (ввод нулей)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithZeroInYearField() {
+    void shouldntCreditPurchasingTicketFromCardWithZeroInYearField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithZeroInYearField();
@@ -722,7 +747,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля год (оставить поле пустым)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithEmptyYearField() {
+    void shouldntCreditPurchasingTicketFromCardWithEmptyYearField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithEmptyYearField();
@@ -736,7 +761,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод 1 символа)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithShortCVC() {
+    void shouldntCreditPurchasingTicketFromCardWithShortCVC() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithShortCVC();
@@ -748,7 +773,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод 4 символов)
         //проходит +
-    void mbolshouldntPurchasingTicketFromCreditCardWithLongCVC() {
+    void shouldntCreditPurchasingTicketFromCardWithLongCVC() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCVC();
@@ -760,7 +785,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод букв)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithWordInCVCField() {
+    void shouldntCreditPurchasingTicketFromCardWithWordInCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithWordInCVCField();
@@ -772,7 +797,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод символов)
         //проходит +
-    void mbolshouldntPurchasingTicketFromCreditCardWithSymbolInCVCField() {
+    void shouldntCreditPurchasingTicketFromCardWithSymbolInCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSymbolInCVCField();
@@ -784,7 +809,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод нулей)
         //не проходит (баг *оформлен*)
-    void shouldntPurchasingTicketFromCreditCardWithZeroInCVCField() {
+    void shouldntCreditPurchasingTicketFromCardWithZeroInCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithZeroInCVCField();
@@ -796,7 +821,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод пробелов)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithSpaceCVCField() {
+    void shouldntCreditPurchasingTicketFromCardWithSpaceCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithSpaceCVCField();
@@ -808,7 +833,7 @@ public class PurchaseTicketTest {
     @Test
         // Валидация поля CVC (оставить поле пустым)
         //проходит +
-    void shouldntPurchasingTicketFromCreditCardWithEmptyCVCField() {
+    void shouldntCreditPurchasingTicketFromCardWithEmptyCVCField() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithEmptyCVCField();
