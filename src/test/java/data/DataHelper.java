@@ -1,11 +1,14 @@
 package data;
 
 import com.github.javafaker.Faker;
+import lombok.SneakyThrows;
 import lombok.Value;
-import org.jetbrains.annotations.NotNull;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import java.sql.DriverManager;
 import java.time.LocalDate;
-import java.time.Year;
+import java.util.Date;
 import java.util.Locale;
 
 public class DataHelper {
@@ -15,7 +18,7 @@ public class DataHelper {
     static String activeCard = "4444 4444 4444 4441";
     static String blockedCard = "4444 4444 4444 4442";
     static String shortCard = "4444";
-    static String longCard = "4444 4444 4444 4444 4444";
+    static String longCard = "4444 4444 4444 4444 1";
 
     static String longCVC = "1234";
 
@@ -34,8 +37,7 @@ public class DataHelper {
     public static String generateInvalidMonthWithoutZero() {
         Faker faker = new Faker();
         int random = faker.random().nextInt(1, 9);
-        String invalidFormOfMonth = String.valueOf(random);
-        String Month = invalidFormOfMonth;
+        String Month = String.valueOf(random);
         return Month;
     }
 
@@ -46,8 +48,8 @@ public class DataHelper {
         Faker faker = new Faker();
         int random = faker.random().nextInt(1, 5);
         int someYear = currentYear + random;
-        int validFormOfMonth = millennium - someYear;
-        String Year = String.valueOf(validFormOfMonth);
+        int validFormOfYear = millennium - someYear;
+        String Year = String.valueOf(validFormOfYear);
         return Year;
     }
 
@@ -58,8 +60,8 @@ public class DataHelper {
         Faker faker = new Faker();
         int random = faker.random().nextInt(8, 20);
         int someYear = currentYear + random;
-        int validFormOfMonth = millennium - someYear;
-        String Year = String.valueOf(validFormOfMonth);
+        int invalidFormOfYear = millennium - someYear;
+        String Year = String.valueOf(invalidFormOfYear);
         return Year;
     }
 
@@ -88,8 +90,6 @@ public class DataHelper {
         String CVC = faker.number().digits(1);
         return CVC;
     }
-
-    public  String LongCVC = "1234" ;
 
     public static HolderInfo getValidHolderInfo() {
         return new HolderInfo(generateName("eng"), activeCard, generateValidMonth(), generateValidYear(), generateCVC());
@@ -126,6 +126,7 @@ public class DataHelper {
     public static HolderInfo getHolderInfoWithLongCardNumber() {
         return new HolderInfo(generateName("ru"), longCard, generateValidMonth(), generateValidYear(), generateCVC());
     }
+
     public static HolderInfo getHolderInfoWithWordInCardNumberField() {
         return new HolderInfo(generateName("ru"), "CARD NUMBER", generateValidMonth(), generateValidYear(), generateCVC());
     }
@@ -183,19 +184,19 @@ public class DataHelper {
     }
 
     public static HolderInfo getHolderInfoWithWordInYearField() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(),"год", generateCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), "год", generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithSymbolInYearField() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(),"$$", generateCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), "$$", generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithZeroInYearField() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(),"00", generateCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), "00", generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithEmptyYearField() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(),"", generateCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), "", generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithShortCVC() {
@@ -218,15 +219,13 @@ public class DataHelper {
         return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateValidYear(), "000");
     }
 
-    public static HolderInfo getHolderInfoWithSpaceCVCField() {
+    public static HolderInfo getHolderInfoWithSpaceInCVCField() {
         return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateValidYear(), "   ");
     }
 
     public static HolderInfo getHolderInfoWithEmptyCVCField() {
         return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateValidYear(), "");
     }
-
-
 
 
     //контейнер для данных
@@ -240,17 +239,44 @@ public class DataHelper {
     }
 
 
-    //SneakyThrows
-    // public static String getTransferCard() {
-    //   var runner = new QueryRunner();
-    // var codeSQL = "SELECT card from  ???  order by created DESC LIMIT 1";
-    //try (
-    //            var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/database", "user", "pass");
-    //  ) {
-    //     return runner.query(conn, codeSQL, new ScalarHandler<>());
-    //  }
-    // }
-    //
+    @SneakyThrows
+    public static String getTransactionCardStatusByDebitCard() {
+        var runner = new QueryRunner();
+        var codeSQL = "SELECT status from payment_entity where amount = 4500000;";
+        try (
+                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")
+        ) {
+            return runner.query(conn, codeSQL, new ScalarHandler<>());
+        }
 
+    }
 
+    @SneakyThrows
+    public static String getTransactionCardStatusByCreditCard() {
+        var runner = new QueryRunner();
+
+        var codeSQL = "SELECT status from credit_request_entity where amount = 4500000;";
+        try (
+                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")
+        ) {
+            return runner.query(conn, codeSQL, new ScalarHandler<>());
+        }
+
+    }
+
+    @SneakyThrows
+    public static void clearSUT() {
+        var runner = new QueryRunner();
+        var deleteCreditPaymentInfoTableSQL = "DELETE FROM credit_request_entity ;";
+        var deleteOrderInfoTableSQL = "DELETE FROM order_entity ;";
+        var deleteDebitPaymentInfoTableSQL1 = "DELETE FROM payment_entity ;";
+
+        try (
+                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+        ) {
+            var deleteCodes = runner.update(conn, deleteCreditPaymentInfoTableSQL);
+            var deleteCardsInfo = runner.update(conn, deleteOrderInfoTableSQL);
+            var deleteUsers1 = runner.update(conn, deleteDebitPaymentInfoTableSQL1);
+        }
+    }
 }

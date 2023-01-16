@@ -21,13 +21,11 @@ public class PurchaseTicketPage {
 
     private final SelenideElement wrongNotification = $(" .notification_status_error");
 
-    private final SelenideElement cardFieldError = $(" div:nth-child(1) > span > span > span.input__sub");
-    //   private static final SelenideElement MonthEmptyFieldError = $(" div > form > fieldset > div:nth-child(2) > span > span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub");
-    private final SelenideElement monthPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(1) > span > span > span.input__sub");
-    private final SelenideElement yearPeriodFieldError = $(" div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
-    // private static final SelenideElement YearEmptyFieldError = $(" div > form > fieldset > div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
-    private final SelenideElement holderFieldError = $(" div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__sub");
-    private final SelenideElement cvcFieldError = $("  div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__sub");
+    private final SelenideElement cardFieldError = $("div:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement monthPeriodFieldError = $("div:nth-child(2) > span > span:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement yearPeriodFieldError = $("div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__sub");
+    private final SelenideElement holderFieldError = $("div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__sub");
+    private final SelenideElement cvcFieldError = $("div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__sub");
 
 
     public void purchase(DataHelper.HolderInfo info) {
@@ -59,27 +57,15 @@ public class PurchaseTicketPage {
         yearPeriodFieldError.should(Condition.visible);
     }
 
-  /*  public static void  checkEmptyErrorMonthFieldNotification() {
-        MonthEmptyFieldError.should(Condition.visible);
-    }
-   */
-
-  /*  public static void  checkEmptyErrorYearFieldNotification() {
-        YearEmptyFieldError.should(Condition.visible);
-    }
-
-   */
-
     public void checkErrorHolderFieldNotification() {
         holderFieldError.should(Condition.visible);
     }
 
-    public void getCVCFieldValue() { cvcCodeField.getValue();
-    }
-
-
     public void checkErrorCVCFieldNotification() {
         cvcFieldError.should(Condition.visible);
+    }
+
+    public void getCVCFieldValue() { cvcCodeField.getValue();
     }
 
 }
