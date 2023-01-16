@@ -141,16 +141,15 @@ public class CreditPurchaseTicketTest {
 
     }
 
-    @Test
-        //Валидация поля номер карты (ввод длинного номера)
-        // проходит +
-    void shouldntCreditPurchasingTicketFromCardWithLongCardNumber() {
+    void shouldntPurchasingTicketFromCardWithLongCardNumber() {
         var mainPage = new MainPage();
         mainPage.purchaseBuyByCreditCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCardNumber();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkSuccessNotification(); //прописать проверку на количестов
+        var actual =page.getCardFieldValue();
+        var expected = "4444 4444 4444 4441";
+        Assertions.assertEquals(expected,actual);
 
     }
     @Test
@@ -384,13 +383,15 @@ public class CreditPurchaseTicketTest {
     @Test
         // Валидация поля CVC (ввод 4 символов)
         //проходит +
-    void shouldntCreditPurchasingTicketFromCardWithLongCVC() {
+    void mbolshouldntPurchasingTicketFromCardWithLongCVC() {
         var mainPage = new MainPage();
-        mainPage.purchaseBuyByCreditCard();
+        mainPage.purchaseBuyByDebitCard();
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCVC();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkSuccessNotification();
+        var actual =page.getCVCFieldValue();
+        var expected = "123";
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test

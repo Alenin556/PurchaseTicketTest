@@ -150,7 +150,9 @@ public class PurchaseTicketTest {
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCardNumber();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkSuccessNotification(); //прописать проверку на количество
+        var actual =page.getCardFieldValue();
+        var expected = "4444 4444 4444 4444";
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -391,7 +393,9 @@ public class PurchaseTicketTest {
         var invalidCardInformation = DataHelper.getHolderInfoWithLongCVC();
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
-        page.checkSuccessNotification();
+        var actual =page.getCVCFieldValue();
+        var expected = "123";
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test

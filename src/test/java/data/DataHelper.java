@@ -18,7 +18,7 @@ public class DataHelper {
     static String activeCard = "4444 4444 4444 4441";
     static String blockedCard = "4444 4444 4444 4442";
     static String shortCard = "4444";
-    static String longCard = "4444 4444 4444 4444 1";
+    static String longCard = "4444 4444 4444 4441 1";
 
     static String longCVC = "1234";
 

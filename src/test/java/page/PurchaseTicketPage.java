@@ -65,7 +65,14 @@ public class PurchaseTicketPage {
         cvcFieldError.should(Condition.visible);
     }
 
-    public void getCVCFieldValue() { cvcCodeField.getValue();
+    public String getCardFieldValue() {
+        String value = cardNumberField.getValue();
+        return value;
+    }
+
+    public String getCVCFieldValue() {
+        String value = cvcCodeField.getValue();
+        return value;
     }
 
 }
