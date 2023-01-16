@@ -238,45 +238,4 @@ public class DataHelper {
         private String cvc;
     }
 
-
-    @SneakyThrows
-    public static String getTransactionCardStatusByDebitCard() {
-        var runner = new QueryRunner();
-        var codeSQL = "SELECT status from payment_entity where amount = 4500000;";
-        try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")
-        ) {
-            return runner.query(conn, codeSQL, new ScalarHandler<>());
-        }
-
-    }
-
-    @SneakyThrows
-    public static String getTransactionCardStatusByCreditCard() {
-        var runner = new QueryRunner();
-
-        var codeSQL = "SELECT status from credit_request_entity where amount = 4500000;";
-        try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass")
-        ) {
-            return runner.query(conn, codeSQL, new ScalarHandler<>());
-        }
-
-    }
-
-    @SneakyThrows
-    public static void clearSUT() {
-        var runner = new QueryRunner();
-        var deleteCreditPaymentInfoTableSQL = "DELETE FROM credit_request_entity ;";
-        var deleteOrderInfoTableSQL = "DELETE FROM order_entity ;";
-        var deleteDebitPaymentInfoTableSQL1 = "DELETE FROM payment_entity ;";
-
-        try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-        ) {
-            var deleteCodes = runner.update(conn, deleteCreditPaymentInfoTableSQL);
-            var deleteCardsInfo = runner.update(conn, deleteOrderInfoTableSQL);
-            var deleteUsers1 = runner.update(conn, deleteDebitPaymentInfoTableSQL1);
-        }
-    }
 }

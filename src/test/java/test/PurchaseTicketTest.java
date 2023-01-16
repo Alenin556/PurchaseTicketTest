@@ -2,15 +2,14 @@ package test;
 
 
 import data.DataHelper;
+import data.SQLDataHelper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.MainPage;
 import page.PurchaseTicketPage;
-
 import static com.codeborne.selenide.Selenide.open;
-import static data.DataHelper.clearSUT;
 
 public class PurchaseTicketTest {
 
@@ -30,7 +29,7 @@ public class PurchaseTicketTest {
         page.purchase(validCardInformation);
         page.checkSuccessNotification();
         var expected = "APPROVED";
-        var actual = DataHelper.getTransactionCardStatusByDebitCard();
+        var actual = SQLDataHelper.getTransactionCardStatusByDebitCard();
         Assertions.assertEquals(expected,actual);
     }
 
@@ -44,10 +43,7 @@ public class PurchaseTicketTest {
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
         page.checkWrongNotification();
-       /* var expected = "REJECTED";
-        var actual = DataHelper.getTransactionCardStatusByCreditCard();
-        Assertions.assertEquals(expected,actual);
-        */
+
     }
 
     @Test
@@ -461,6 +457,6 @@ public class PurchaseTicketTest {
 
     @AfterAll
     public static void tearDown(){
-        clearSUT();
+        SQLDataHelper.clearSUT();
     }
 }

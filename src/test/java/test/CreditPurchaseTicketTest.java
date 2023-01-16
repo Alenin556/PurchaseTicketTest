@@ -1,6 +1,7 @@
 package test;
 
 import data.DataHelper;
+import data.SQLDataHelper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +10,6 @@ import page.MainPage;
 import page.PurchaseTicketPage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static data.DataHelper.clearSUT;
 
 public class CreditPurchaseTicketTest {
 
@@ -29,7 +29,7 @@ public class CreditPurchaseTicketTest {
         page.purchase(validCardInformation);
         page.checkSuccessNotification();
         var expected = "APPROVED";
-        var actual = DataHelper.getTransactionCardStatusByCreditCard();
+        var actual = SQLDataHelper.getTransactionCardStatusByCreditCard();
         Assertions.assertEquals(expected,actual);
     }
 
@@ -455,6 +455,6 @@ public class CreditPurchaseTicketTest {
 
     @AfterAll
     public static void tearDown(){
-        clearSUT();
+       SQLDataHelper.clearSUT();
     }
 }
