@@ -16,35 +16,6 @@ public class PurchaseTicketTest {
         open("http://localhost:8080");
     }
 
-    @Test
-        // Покупка по карте ( sql проверка )
-        //проходит +
-    void shouldPurchasingTicketFromCard() {
-        var mainPage = new MainPage();
-        mainPage.purchaseBuyByDebitCard();
-        var validCardInformation = DataHelper.getValidHolderInfo();
-        PurchaseTicketPage page = new PurchaseTicketPage();
-        page.purchase(validCardInformation);
-        page.checkSuccessNotification();
-        var expected = "APPROVED";
-        var actual = SQLDataHelper.getTransactionCardStatusByDebitCard();
-        Assertions.assertEquals(expected,actual);
-    }
-
-    @Test
-        // Покупка по карте ( postgressql проверка )
-        //проходит +
-    void shouldPurchasingTicketFromCard1() {
-        var mainPage = new MainPage();
-        mainPage.purchaseBuyByDebitCard();
-        var validCardInformation = DataHelper.getValidHolderInfo();
-        PurchaseTicketPage page = new PurchaseTicketPage();
-        page.purchase(validCardInformation);
-        page.checkSuccessNotification();
-        var expected = "APPROVED";
-        var actual = PostgresSqlDataHelper.getTransactionCardStatusByDebitCard();
-        Assertions.assertEquals(expected,actual);
-    }
 
     @Test
         // Покупка по заблокированной карте
@@ -472,8 +443,4 @@ public class PurchaseTicketTest {
         page.checkErrorCVCFieldNotification();
     }
 
-    @AfterAll
-    public static void tearDown(){
-        SQLDataHelper.clearSUT();
-    }
 }

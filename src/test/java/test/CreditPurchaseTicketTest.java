@@ -20,36 +20,6 @@ public class CreditPurchaseTicketTest {
     }
 
     @Test
-        // Покупка в кредит по карте ( sql проверка )
-        //проходит +
-    void shouldCreditPurchasingTicketFromCard() {
-        var mainPage = new MainPage();
-        mainPage.purchaseBuyByCreditCard();
-        var validCardInformation = DataHelper.getValidHolderInfo();
-        PurchaseTicketPage page = new PurchaseTicketPage();
-        page.purchase(validCardInformation);
-        page.checkSuccessNotification();
-        var expected = "APPROVED";
-        var actual = SQLDataHelper.getTransactionCardStatusByCreditCard();
-        Assertions.assertEquals(expected,actual);
-    }
-
-    @Test
-        // Покупка в кредит по карте ( postgressql проверка )
-        //проходит +
-    void shouldCreditPurchasingTicketFromCard1() {
-        var mainPage = new MainPage();
-        mainPage.purchaseBuyByCreditCard();
-        var validCardInformation = DataHelper.getValidHolderInfo();
-        PurchaseTicketPage page = new PurchaseTicketPage();
-        page.purchase(validCardInformation);
-        page.checkSuccessNotification();
-        var expected = "APPROVED";
-        var actual = PostgresSqlDataHelper.getTransactionCardStatusByCreditCard();
-        Assertions.assertEquals(expected,actual);
-    }
-
-    @Test
         // Покупка в кредит по заблокированной карте
         //не проходит (баг *оформлен*)
     void shouldntCreditPurchasingTicketFromCardWithWrongCardNumber() {

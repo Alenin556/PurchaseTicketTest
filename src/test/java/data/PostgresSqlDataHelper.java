@@ -12,7 +12,7 @@ public class PostgresSqlDataHelper {
         var runner = new QueryRunner();
         var codeSQL = "SELECT status from public.payment_entity order by created DESC LIMIT 1;";
         try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:5432/app", "app", "pass")
+                var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass")
         ) {
             return runner.query(conn, codeSQL, new ScalarHandler<>());
         }
@@ -25,7 +25,7 @@ public class PostgresSqlDataHelper {
 
         var codeSQL = "SELECT status from public.credit_request_entity order by created DESC LIMIT 1;";
         try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:5432/app", "app", "pass")
+                var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass")
         ) {
             return runner.query(conn, codeSQL, new ScalarHandler<>());
         }
@@ -40,7 +40,7 @@ public class PostgresSqlDataHelper {
         var deleteDebitPaymentInfoTableSQL1 = "DELETE FROM public.payment_entity ;";
 
         try (
-                var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+                var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/app", "app", "pass");
         ) {
             var deleteCodes = runner.update(conn, deleteCreditPaymentInfoTableSQL);
             var deleteCardsInfo = runner.update(conn, deleteOrderInfoTableSQL);
