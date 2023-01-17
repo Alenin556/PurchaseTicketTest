@@ -3,5 +3,6 @@ Thumbs.db*
 node_modules
 .idea
 .gradle
+.build
 target
 *.iml
