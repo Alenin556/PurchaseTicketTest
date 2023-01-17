@@ -2,11 +2,9 @@ package test;
 
 
 import data.DataHelper;
+import data.PostgresSqlDataHelper;
 import data.SQLDataHelper;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import page.MainPage;
 import page.PurchaseTicketPage;
 import static com.codeborne.selenide.Selenide.open;
@@ -19,7 +17,7 @@ public class PurchaseTicketTest {
     }
 
     @Test
-        // Покупка по карте
+        // Покупка по карте ( sql проверка )
         //проходит +
     void shouldPurchasingTicketFromCard() {
         var mainPage = new MainPage();
@@ -30,6 +28,21 @@ public class PurchaseTicketTest {
         page.checkSuccessNotification();
         var expected = "APPROVED";
         var actual = SQLDataHelper.getTransactionCardStatusByDebitCard();
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+        // Покупка по карте ( postgressql проверка )
+        //проходит +
+    void shouldPurchasingTicketFromCard1() {
+        var mainPage = new MainPage();
+        mainPage.purchaseBuyByDebitCard();
+        var validCardInformation = DataHelper.getValidHolderInfo();
+        PurchaseTicketPage page = new PurchaseTicketPage();
+        page.purchase(validCardInformation);
+        page.checkSuccessNotification();
+        var expected = "APPROVED";
+        var actual = PostgresSqlDataHelper.getTransactionCardStatusByDebitCard();
         Assertions.assertEquals(expected,actual);
     }
 
@@ -151,7 +164,7 @@ public class PurchaseTicketTest {
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
         var actual =page.getCardFieldValue();
-        var expected = "4444 4444 4444 4444";
+        var expected = "4444 4444 4444 4441";
         Assertions.assertEquals(expected,actual);
 
     }
