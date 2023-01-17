@@ -441,8 +441,4 @@ public class CreditPurchaseTicketTest {
         page.checkErrorCVCFieldNotification();
     }
 
-    @AfterAll
-    public static void tearDown(){
-       SQLDataHelper.clearSUT();
-    }
 }

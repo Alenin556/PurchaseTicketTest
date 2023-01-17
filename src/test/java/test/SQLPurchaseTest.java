@@ -46,7 +46,7 @@ public class SQLPurchaseTest {
     }
 
     @AfterAll
-    public void tearDown(){
+    public static void tearDown(){
         SQLDataHelper.clearSUT();
     }
 

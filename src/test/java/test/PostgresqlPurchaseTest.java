@@ -52,7 +52,7 @@ public class PostgresqlPurchaseTest {
 
 
     @AfterAll
-    public void tearDown(){
+    public static void tearDown(){
        PostgresSqlDataHelper.clearSUT();
     }
 
