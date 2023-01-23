@@ -40,7 +40,6 @@ public class CreditPurchaseTicketTest {
         PurchaseTicketPage page = new PurchaseTicketPage();
         page.purchase(invalidCardInformation);
         page.checkWrongNotification();
-
     }
 
     //       Имя

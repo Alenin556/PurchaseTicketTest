@@ -16,7 +16,7 @@ public class SQLPurchaseTest {
         open("http://localhost:8080");
     }
 
-    @Test
+  /*  @Test
         // Покупка по карте (sql)
         //проходит +
     void shouldPurchasingTicketFromCard() {
@@ -45,7 +45,9 @@ public class SQLPurchaseTest {
         var actual = SQLDataHelper.getTransactionCardStatusByCreditCard();
         Assertions.assertEquals(expected,actual);
     }
-  /*  @Test
+
+     */
+   @Test
         // Покупка по карте (postgresql)
         //проходит +
     void shouldPurchasingTicketFromCard1() {
@@ -75,7 +77,6 @@ public class SQLPurchaseTest {
         Assertions.assertEquals(expected,actual);
     }
 
-   */
 
 
     @AfterAll
@@ -83,11 +84,15 @@ public class SQLPurchaseTest {
         PostgresSqlDataHelper.clearSUT();
     }
 
-    /* @AfterAll
+
+/*
+     @AfterAll
     public static void tearDown(){
         SQLDataHelper.clearSUT();
     }
 
-     */
+ */
+
+
 
 }
