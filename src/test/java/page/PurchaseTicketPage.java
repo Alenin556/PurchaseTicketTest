@@ -66,12 +66,12 @@ public class PurchaseTicketPage {
     }
 
     public String getCardFieldValue() {
-        String value = cardNumberField.getValue();
+        var value = cardNumberField.getValue();
         return value;
     }
 
     public String getCVCFieldValue() {
-        String value = cvcCodeField.getValue();
+        var value = cvcCodeField.getValue();
         return value;
     }
 

@@ -1,9 +1,7 @@
 package test;
 
 import data.DataHelper;
-import data.PostgresSqlDataHelper;
-import data.SQLDataHelper;
-import org.junit.jupiter.api.AfterAll;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -98,6 +96,7 @@ public class CreditPurchaseTicketTest {
         page.checkErrorHolderFieldNotification();
 
     }
+
 
     @Test
         //Валидация поля Имя (оставить поле пустым)

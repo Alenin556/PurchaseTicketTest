@@ -1,20 +1,20 @@
 package data;
 
 import com.github.javafaker.Faker;
-import lombok.SneakyThrows;
-import lombok.Value;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import java.sql.DriverManager;
+import lombok.Value;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
+
 import java.util.Locale;
 
-public class DataHelper {
 
+
+public class DataHelper {
+    static Faker faker = new Faker();
     static String wrongMonth = "13";
     static String wrongPastYear = "15";
+    static  String invalidYear = "2045";
     static String activeCard = "4444 4444 4444 4441";
     static String blockedCard = "4444 4444 4444 4442";
     static String shortCard = "4444";
@@ -25,70 +25,44 @@ public class DataHelper {
 
     public static String generateValidMonth() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
-        int currentMonth = date.getMonthValue();
-        Faker faker = new Faker();
-        int random = faker.random().nextInt(1, 11);
-        int someMonth = currentMonth + random;
-        String validFormOfMonth = "0" + someMonth;
-        String Month = validFormOfMonth;
-        return Month;
+        var dateFormat = date.format(DateTimeFormatter.ISO_DATE);
+        var month = dateFormat.substring(4);
+        return month;
     }
 
     public static String generateInvalidMonthWithoutZero() {
-        Faker faker = new Faker();
-        int random = faker.random().nextInt(1, 9);
-        String Month = String.valueOf(random);
-        return Month;
+        var random = faker.random().nextInt(1, 9);
+        var month = String.valueOf(random);
+        return month;
     }
 
     public static String generateValidYear() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
-        int currentYear = date.getYear();
-        int millennium = 2000;
-        Faker faker = new Faker();
-        int random = faker.random().nextInt(1, 5);
-        int someYear = currentYear + random;
-        int validFormOfYear = millennium - someYear;
-        String Year = String.valueOf(validFormOfYear);
-        return Year;
-    }
-
-    public static String generateInvalidYear() {
-        LocalDate date = LocalDate.now(); // получаем текущую дату
-        int currentYear = date.getYear();
-        int millennium = 2000;
-        Faker faker = new Faker();
-        int random = faker.random().nextInt(8, 20);
-        int someYear = currentYear + random;
-        int invalidFormOfYear = millennium - someYear;
-        String Year = String.valueOf(invalidFormOfYear);
-        return Year;
-    }
+        var dateFormat = date.format(DateTimeFormatter.ISO_DATE);
+        var year = dateFormat.substring(2);
+        return year;
+        }
 
 
     public static String generateName(String locale) {
-        Faker faker = new Faker(new Locale(locale));
-        String HolderName = faker.name().fullName();
-        return HolderName;
+        var holderName = faker.name().fullName();
+        return holderName;
     }
 
 
     public static String generateCardNumber(String locale) {
-        Faker faker = new Faker(new Locale(locale));
-        String CardNumber = faker.finance().creditCard();
-        return CardNumber;
+        var cardNumber = faker.finance().creditCard();
+        return cardNumber;
     }
 
     public static String generateCVC() {
-        Faker faker = new Faker();
-        String CVC = faker.number().digits(3);
-        return CVC;
+        var cvc = faker.number().digits(3);
+        return cvc;
     }
 
     public static String generateShortCVC() {
-        Faker faker = new Faker();
-        String CVC = faker.number().digits(1);
-        return CVC;
+        var cvc = faker.number().digits(1);
+        return cvc;
     }
 
     public static HolderInfo getValidHolderInfo() {
@@ -176,7 +150,7 @@ public class DataHelper {
     }
 
     public static HolderInfo getHolderInfoWithInvalidYear() {
-        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), generateInvalidYear(), generateCVC());
+        return new HolderInfo(generateName("ru"), activeCard, generateValidMonth(), invalidYear, generateCVC());
     }
 
     public static HolderInfo getHolderInfoWithWrongPastYear() {
@@ -237,5 +211,4 @@ public class DataHelper {
         private String year;
         private String cvc;
     }
-
 }
