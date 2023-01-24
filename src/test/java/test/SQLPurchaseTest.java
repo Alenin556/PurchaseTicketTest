@@ -7,6 +7,8 @@ import org.junit.jupiter.api.*;
 import page.MainPage;
 import page.PurchaseTicketPage;
 
+import java.sql.SQLException;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class SQLPurchaseTest {
@@ -28,7 +30,7 @@ public class SQLPurchaseTest {
         page.checkSuccessNotification();
         var expected = "APPROVED";
         var actual = SQLDataHelper.getTransactionCardStatusByDebitCard();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -43,15 +45,10 @@ public class SQLPurchaseTest {
         page.checkSuccessNotification();
         var expected = "APPROVED";
         var actual = SQLDataHelper.getTransactionCardStatusByCreditCard();
-        Assertions.assertEquals(expected,actual);
-    }
-    @AfterAll
-    public static void tearDown(){
-        SQLDataHelper.clearSUT();
+        Assertions.assertEquals(expected, actual);
     }
 
-   /*
-   @Test
+    @Test
         // Покупка по карте (postgresql)
         //проходит +
     void shouldPurchasingTicketFromCard1() {
@@ -63,10 +60,15 @@ public class SQLPurchaseTest {
         page.checkSuccessNotification();
         var expected = "APPROVED";
         var actual = PostgresSqlDataHelper.getTransactionCardStatusByDebitCard();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @Test
+    @AfterAll
+    public static void tearDown() throws SQLException {
+        SQLDataHelper.clearSUT();
+    }
+
+   /* @Test
         // Покупка в кредит по карте (postgresql)
         //проходит +
     void shouldCreditPurchasingTicketFromCard1() {
@@ -78,15 +80,12 @@ public class SQLPurchaseTest {
         page.checkSuccessNotification();
         var expected = "APPROVED";
         var actual = PostgresSqlDataHelper.getTransactionCardStatusByCreditCard();
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
 
-
-
-
     @AfterAll
-    public static void tearDown(){
+    public static void tearDown() {
         PostgresSqlDataHelper.clearSUT();
     }
 

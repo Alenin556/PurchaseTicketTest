@@ -24,9 +24,8 @@ public class DataHelper {
 
 
     public static String generateValidMonth() {
-        LocalDate date = LocalDate.now(); // получаем текущую дату
-        var dateFormat = date.format(DateTimeFormatter.ISO_DATE);
-        var month = dateFormat.substring(4);
+        LocalDate date = LocalDate.now();
+        String month = date.format(DateTimeFormatter.ofPattern("MM"));
         return month;
     }
 
@@ -38,8 +37,7 @@ public class DataHelper {
 
     public static String generateValidYear() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
-        var dateFormat = date.format(DateTimeFormatter.ISO_DATE);
-        var year = dateFormat.substring(2);
+        var year = date.format(DateTimeFormatter.ofPattern("yy"));
         return year;
         }
 
