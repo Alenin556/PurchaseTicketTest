@@ -62,13 +62,7 @@ public class SQLPurchaseTest {
         var actual = PostgresSqlDataHelper.getTransactionCardStatusByDebitCard();
         Assertions.assertEquals(expected, actual);
     }
-
-    @AfterAll
-    public static void tearDown() throws SQLException {
-        SQLDataHelper.clearSUT();
-    }
-
-   /* @Test
+    @Test
         // Покупка в кредит по карте (postgresql)
         //проходит +
     void shouldCreditPurchasingTicketFromCard1() {
@@ -85,11 +79,7 @@ public class SQLPurchaseTest {
 
 
     @AfterAll
-    public static void tearDown() {
-        PostgresSqlDataHelper.clearSUT();
+    public static void tearDown() throws SQLException {
+        SQLDataHelper.clearSUT();
     }
-
-    */
-
-
 }
