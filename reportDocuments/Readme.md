@@ -17,18 +17,19 @@
 ` netstat -aon | findstr "9999" ` 
 
 ## Инструкция по установке и запуску тестов:
-- Склонируйте репозиторий 
-- Поднимите контейнеры командой `docker compose up `
+- Склонируйте репозиторий
+- Поднимите контейнеры с Node.js , MySQL и PostgreSQL командой `docker compose up `.
 #### Для запуска сервиса с взаимодействием с базами данных прописываем в терминале следующие команды:
 
-для mysql ` java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar
- `
+для mysql
+` java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`
 
-для postgresql ` java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar
- `
+для postgresql
+`java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar `
  
  #### Запуск тестов стоит выполнить с параметрами, указав url базы данных в командной строке:
 для mysql
 ` ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app" `
+
 для postgresql
  ` ./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app" `
