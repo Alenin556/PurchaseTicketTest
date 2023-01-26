@@ -2,8 +2,6 @@ package test;
 
 
 import data.DataHelper;
-import data.PostgresSqlDataHelper;
-import data.SQLDataHelper;
 import org.junit.jupiter.api.*;
 import page.MainPage;
 import page.PurchaseTicketPage;

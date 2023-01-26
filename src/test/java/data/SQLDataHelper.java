@@ -20,19 +20,6 @@ public class SQLDataHelper {
 
             return runner.query(conn, codeSQL, new ScalarHandler<>());
     }
-    @SneakyThrows
-    public static String getTransactionCardStatusByDebitCard1() {
-        var runner = new QueryRunner();
-        var codeSQL = "SELECT status from payment_entity order by created DESC LIMIT 1;";
-
-        var urlValue = System.getProperty("db.url");
-        var loginValue = System.getProperty("login");
-        var passwordValue = System.getProperty("password");
-
-        var conn = DriverManager.getConnection(urlValue, loginValue, passwordValue);
-
-        return runner.query(conn, codeSQL, new ScalarHandler<>());
-    }
 
     @SneakyThrows
     public static String getTransactionCardStatusByCreditCard() {
@@ -49,20 +36,6 @@ public class SQLDataHelper {
             return runner.query(conn, codeSQL, new ScalarHandler<>());
     }
 
-    @SneakyThrows
-    public static String getTransactionCardStatusByCreditCard1() {
-        var runner = new QueryRunner();
-
-        var codeSQL = "SELECT status from credit_request_entity order by created DESC LIMIT 1;";
-
-        var urlValue = System.getProperty("db.url");
-        var loginValue = System.getProperty("login");
-        var passwordValue = System.getProperty("password");
-
-        var conn = DriverManager.getConnection(urlValue, loginValue, passwordValue);
-
-        return runner.query(conn, codeSQL, new ScalarHandler<>());
-    }
 
     @SneakyThrows
     public static void clearSUT() {
