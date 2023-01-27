@@ -27,7 +27,7 @@
 для postgresql
 `java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar `
  
- #### Запуск тестов стоит выполнить с параметрами, указав url базы данных в командной строке:
+ #### Запуск тестов выполнить с параметрами, указав url базы данных в командной строке:
 для mysql
 ` ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app" `
 
