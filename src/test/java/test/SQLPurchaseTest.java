@@ -18,7 +18,7 @@ public class SQLPurchaseTest {
     }
 
     @Test
-        // Покупка по карте (sql)
+        // Покупка по карте
         //проходит +
     void shouldPurchasingTicketFromCard() {
         var mainPage = new MainPage();
@@ -33,7 +33,7 @@ public class SQLPurchaseTest {
     }
 
     @Test
-        // Покупка в кредит по карте (sql)
+        // Покупка в кредит по карте
         //проходит +
     void shouldCreditPurchasingTicketFromCard() {
         var mainPage = new MainPage();
